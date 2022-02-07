@@ -15,6 +15,7 @@ import static org.springframework.context.annotation.ComponentScan.*;
 
 public class ComponentFilterAppConfigTest {
 
+    //
     @Test
     void filterScan(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ComponentFilterAppConfig.class);
