@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
@@ -9,10 +10,11 @@ import hello.core.member.MemberService;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // 롬복 기능
+//@RequiredArgsConstructor // 롬복 기능
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -21,13 +23,13 @@ public class OrderServiceImpl implements OrderService{
     /* 생성자 주입 */ // 생성자 주입 제일 많이 사용
     // @RequiredArgsConstructor에서 자동으로 생성자 주입 코드 만들어줌 - 확인 (ctrl + f12)(메소드 확인 단축키?)
     // 실제 class 파일에 생성되어있다
-//    @Autowired // 생성자가 하나 일때 @Autowired 생략 가능
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-////        System.out.println("memberRepository = " + memberRepository);
-////        System.out.println("discountPolicy = " + discountPolicy);
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired // 생성자가 하나 일때 @Autowired 생략 가능
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+//        System.out.println("memberRepository = " + memberRepository);
+//        System.out.println("discountPolicy = " + discountPolicy);
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
     /* 생성자 주입 */
 
     /* 일반 메서드 주입 */
