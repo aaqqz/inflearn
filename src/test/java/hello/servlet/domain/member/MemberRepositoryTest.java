@@ -19,7 +19,7 @@ class MemberRepositoryTest {
     }
     
     @Test
-    public void save() throws Exception{
+    void save() throws Exception{
         //given
         Member member = new Member("hello", 20);
 
@@ -33,7 +33,7 @@ class MemberRepositoryTest {
     }
 
     @Test
-    public void findAll() throws Exception{
+    void findAll() throws Exception{
         //given
         Member member1 = new Member("member1", 20);
         Member member2 = new Member("member2", 30);
