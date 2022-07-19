@@ -19,14 +19,14 @@ import java.util.Map;
 @RequestMapping("/basic")
 public class BasicController {
 
-    @GetMapping("text-basic")
+    @GetMapping("/text-basic")
     public String textBasic(Model model) {
         model.addAttribute("data", "Hello <b>String!</b>");
 
         return "basic/text-basic";
     }
 
-    @GetMapping("text-unescaped")
+    @GetMapping("/text-unescaped")
     public String textUnescaped(Model model) {
         model.addAttribute("data", "Hello <b>String!</b>");
 
@@ -59,13 +59,13 @@ public class BasicController {
         return "basic/basic-objects";
     }
 
-    @GetMapping("date")
+    @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
         return "basic/date";
     }
 
-    @GetMapping("link")
+    @GetMapping("/link")
     public String link(Model model) {
         model.addAttribute("param1", "data1");
         model.addAttribute("param2", "data2");
@@ -85,7 +85,7 @@ public class BasicController {
         return "basic/operation";
     }
 
-    @GetMapping("attribute")
+    @GetMapping("/attribute")
     public String attribute(Model model) {
         return "basic/attribute";
     }
@@ -96,23 +96,31 @@ public class BasicController {
         return "basic/each";
     }
 
-    @GetMapping("condition")
+    @GetMapping("/condition")
     public String condition(Model model){
         addUsers(model);
         return "basic/condition";
     }
 
-    @GetMapping("comments")
+    @GetMapping("/comments")
     public String comments(Model model) {
         model.addAttribute("data", "String!");
         return "basic/comments";
     }
 
-    @GetMapping("block")
+    @GetMapping("/block")
     public String block(Model model) {
         addUsers(model);
         return "basic/block";
     }
+
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+        model.addAttribute("user", new User("UserA", 10));
+        addUsers(model);
+        return "basic/javascript";
+    }
+
 
     public void addUsers(Model model) {
         List<User> list = new ArrayList<>();
