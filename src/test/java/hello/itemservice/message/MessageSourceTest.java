@@ -18,9 +18,8 @@ public class MessageSourceTest {
     MessageSource ms;
 
     @Test
-    void helloMessage(){
+    void HelloMessage() {
         String result = ms.getMessage("hello", null, null);
-
         assertThat(result).isEqualTo("안녕");
     }
 
@@ -31,7 +30,7 @@ public class MessageSourceTest {
     }
 
     @Test
-    void notFoundMessageCodeDefaultMessage(){
+    void notFoundMessageCodeDefaultMessage() {
         String result = ms.getMessage("no_code", null, "기본 메시지", null);
         assertThat(result).isEqualTo("기본 메시지");
     }
@@ -39,7 +38,6 @@ public class MessageSourceTest {
     @Test
     void argumentMessage() {
         String result = ms.getMessage("hello.name", new Object[]{"Spring"}, null);
-
         assertThat(result).isEqualTo("안녕 Spring");
     }
 
@@ -50,7 +48,7 @@ public class MessageSourceTest {
     }
 
     @Test
-    void emLang() {
+    void enLang() {
         assertThat(ms.getMessage("hello", null, Locale.ENGLISH)).isEqualTo("hello");
     }
 }
