@@ -64,7 +64,7 @@ public class ServletUploadControllerV2 {
                 part.write(fullPath);
             }
         }
-
+        log.info("파일 저장 SUCC");
         return "upload-form";
     }
 }
