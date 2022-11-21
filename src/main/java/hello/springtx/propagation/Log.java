@@ -8,13 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 public class Log {
 
     @Id
     @GeneratedValue
     private Long id;
+
     private String message;
 
     public Log() {
