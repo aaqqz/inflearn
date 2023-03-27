@@ -20,7 +20,7 @@ class MemberRepositoryTest {
     
     @Test
     void save() throws Exception{
-        //given
+        //given 
         Member member = new Member("hello", 20);
 
         //when
